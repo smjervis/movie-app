@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+      <h3>TOP 5 Movies</h3>
+      <ul>
+        <li *ngFor="let movie of topList" class="border border-gray p-3">
+          <img class="img-fluid mr-5" src={{movie.image}}>
+          <div class="d-inline-block">
+          <h5>{{movie.title}}</h5>
+          <p>Release date: {{movie.release}}</p>
+        </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

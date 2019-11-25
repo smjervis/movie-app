@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+      <form #newMovie="ngForm" (ngSubmit)="addMovieData()" class="container border border-gray p-0">
+        <div class="bg-light d-flex justify-content-between px-4 py-3 mb-5 border-bottom border-gray">
+          <h4>Add Movie</h4>
+          <button type="submit" class="btn btn-primary" [disabled]="!newMovie.form.valid">Save Movie</button>
+        </div>
+        <div class="row px-5 pb-3">
+          <div class="form-group col-12 col-lg-4">
+            <label for="movietitle">Movie Title</label><span class="text-danger"> *</span>
+            <input type="text" class="form-control form-control-sm" name="title" [(ngModel)]="movie.title" id="movietitle" #title="ngModel" required>
+            <span *ngIf="!title.valid && title.touched" class="text-danger">This field is required.</span>
+          </div>
+          <div class="form-group col-12 col-lg-4">
+            <label for="releasedate">Release Date</label><span class="text-danger"> *</span>
+            <input type="date" class="form-control form-control-sm" name="date" [(ngModel)]="movie.release" id="releasedate" #date="ngModel" required>
+            <span *ngIf="!date.valid && date.touched" class="text-danger">This field is required.</span>
+          </div>
+          <div class="form-group col-12 col-lg-4">
+            <label for="movieimage">Movie Image</label><span class="text-danger"> *</span>
+            <input type="file" class="form-control-file" name="img" [(ngModel)]="movie.image" id="movieimage" #img="ngModel" required>
+            <span *ngIf="!img.valid && img.touched" class="text-danger">This field is required.</span>
+          </div>
+          <div class="w-100 mb-4"></div>
+          <div class="form-group col-12">
+            <label for="description">Description</label>
+            <textarea class="form-control" name="description" [(ngModel)]="movie.description" id="description" rows="5"></textarea>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
